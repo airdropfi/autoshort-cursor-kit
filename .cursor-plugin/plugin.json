@@ -1,0 +1,14 @@
+{
+  "name": "autoshort",
+  "description": "Plan, draft and render faceless short videos on your AutoShort account: script review first, credit price shown before any render.",
+  "version": "1.0.0",
+  "author": {
+    "name": "AutoShort",
+    "email": "support@autoshort.org"
+  },
+  "homepage": "https://autoshort.org/en/mcp",
+  "repository": "https://github.com/airdropfi/autoshort-cursor-kit",
+  "license": "MIT",
+  "keywords": ["autoshort", "autoshort mcp", "faceless video", "short video", "youtube shorts"],
+  "logo": "assets/logo.png"
+}

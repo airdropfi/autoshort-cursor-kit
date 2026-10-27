@@ -1,0 +1,28 @@
+---
+description: How to use the AutoShort MCP tools: plan before you produce, quote the credit price first, never promise results
+alwaysApply: false
+---
+
+# AutoShort (faceless short videos)
+
+AutoShort (https://autoshort.org) makes faceless short videos: AI-generated images (or the user's own images), a narration voice and captions, assembled into a vertical video for YouTube Shorts, TikTok and Reels. These rules apply whenever you use the `autoshort` MCP server. Its tool names start with `autoshort_`.
+
+If the AutoShort tools are missing or answer "Sign-in required", tell the user to connect the `autoshort` server in Cursor (Customize, then MCPs) and finish the browser sign-in. You cannot sign in for them.
+
+## Rules that always apply
+
+1. **Plan before you produce.** Agree the script (or, for a multi-episode series, the whole season plan) with the user and save it as a free draft or plan before anything is rendered. Show the script scene by scene and let the user change it.
+2. **Price first.** Credits are the user's money. Before every paid step (render, character sheet, episode), call the matching free price tool (`autoshort_estimate_cost`, `autoshort_get_character_sheet`, `autoshort_quote_character_episode`) and `autoshort_get_credit_balance`, tell the user the price and the balance in plain words, and wait for a clear yes to that exact price. A yes to an earlier question is not approval to render.
+3. **Numbers come from tool output only.** Quote every price, balance and limit exactly as AutoShort returned it. Never write a credit number from memory, never estimate one yourself, never convert credits to dollars unless a tool returned the dollars.
+4. **Never buy credits or set up auto-recharge.** Do not call `autoshort_buy_credits` or `autoshort_setup_auto_recharge`. If the balance is short, say so. If the user asks how to add credits, call `autoshort_get_buy_credits_url` and give them the link to open themselves.
+5. **No income claims.** Do not say or imply that a video or series will go viral, be monetised, get views or earn money. Say what the video is, not how it will perform.
+6. **Narration is read word for word.** AutoShort does not rewrite it. Proofread spelling, numbers and names before saving.
+7. **Content limits.** No real or famous people or lookalikes, no brand logos or protected characters, no sexual content, no children's faces. AutoShort refuses these and so do you.
+8. **AI label.** The images and voice are AI-generated: remind the user to switch on the platform's AI-content label when they post. Post only when the user asks, and only to the platform they name.
+9. **Nothing runs on its own.** Do not resume a series, turn on auto-post or schedule anything unless the user asks. Create series paused (`startPaused: true`).
+
+## Workflow
+
+Single video: idea, script table (narration and visual per scene), `autoshort_draft_video` (free), `autoshort_estimate_cost` and `autoshort_get_credit_balance`, ask "Render it?", then `autoshort_render_draft` once after a clear yes, then poll `autoshort_get_video` until COMPLETED or FAILED. The `make-a-faceless-short` skill has the full steps; follow it when it is installed.
+
+Series: the `plan-a-series` skill. Formats that worked so far: the `research-winning-formats` skill.

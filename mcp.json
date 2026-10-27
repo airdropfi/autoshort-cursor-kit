@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "autoshort": {
+      "url": "https://autoshort.org/api/mcp"
+    }
+  }
+}
